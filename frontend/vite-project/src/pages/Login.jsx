@@ -32,14 +32,14 @@ function Login() {
       const data = await response.json();
 
       if (response.ok) {
-        setMessage("🎉 " + data.message);
+        setMessage(data.message); //"🎉 " + 
         // Next step down the line: save tokens/user data or redirect them to Dashboard
       } else {
-        setMessage("❌ " + data.message);
+        setMessage(data.message);
       }
     } catch (error) {
       console.error(error.message);
-      setMessage("❌ Connection error. Is your backend server running?");
+      setMessage("Connection error. Is your backend server running?");
     }
   };
 

@@ -38,7 +38,7 @@ function Register() {
       const data = await response.json();
       
       if (response.ok) {
-        setMessage(data.message);
+        setMessage(data.message); //"🎉 " + 
       } else {
         setMessage(data.message);
       }

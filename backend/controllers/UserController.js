@@ -3,6 +3,7 @@ import bcrypt from "bcrypt"
 import validateUser from "../../utils/validation.js"
 import generateToken from "../../utils/generateToken.js"
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const  cookieOptions = {
     secure: false,
@@ -86,7 +87,7 @@ export const loginUser = async (req, res) =>{
         }
         //check email exists
         const userfound = await User.findOne({email: email.trim().toLowerCase()})
-        if(!emailexits){
+        if(!userfound){
             return res.status(400).json({
                 message: "email not found"
             })
@@ -94,7 +95,7 @@ export const loginUser = async (req, res) =>{
         //verify password
         // const password_bcrypted = await bcrypt.hash(password) ---no need to write this when bcrypt.compare
     
-        const password_verified = await bcrypt.compare(password, userfound.password)
+        const password_verified = await bcrypt.compareSync(password, userfound.password) //bycrypt.compare vs bycrypt.compareSync
 
         if(!password_verified){
             return res.status(400).json({
