@@ -1,0 +1,256 @@
+.cardContainer {
+  width: min(92%, 560px);
+  min-height: 460px;
+  margin: 40px auto;
+  padding: 58px 42px 48px;
+
+  background: #fdfcf9;
+  border-radius: 38px;
+
+  box-shadow:
+    0 8px 22px rgba(0, 0, 0, 0.08),
+    0 2px 6px rgba(0, 0, 0, 0.04);
+
+  box-sizing: border-box;
+}
+
+.heading {
+  margin: 0 0 42px;
+
+  text-align: center;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: 500;
+  color: #111;
+
+  letter-spacing: -0.3px;
+}
+
+.message {
+  margin: -20px 0 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #b45f4d;
+}
+
+.cardContainer form {
+  width: 100%;
+}
+
+.inputField {
+  width: 100%;
+  height: 48px;
+
+  display: block;
+  box-sizing: border-box;
+
+  margin-bottom: 18px;
+  padding: 0 20px;
+
+  border: 1px solid #ddd8d2;
+  border-radius: 30px;
+
+  background: #fdfcf9;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #111;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.inputField::placeholder {
+  color: #181818;
+  opacity: 1;
+}
+
+.inputField:focus {
+  border-color: #c9977e;
+
+  box-shadow: 0 0 0 3px rgba(201, 151, 126, 0.12);
+}
+
+.passwordWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.passwordWrapper .inputField {
+  margin-bottom: 0;
+  padding-right: 80px;
+}
+
+.forgotPassword {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  color: #3d3d3d;
+
+  cursor: pointer;
+}
+
+.submitButton {
+  width: 100%;
+  height: 48px;
+
+  margin-top: 54px;
+
+  border: none;
+  border-radius: 30px;
+
+  background: #c9977e;
+  color: #fff;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease;
+}
+
+.submitButton:hover {
+  background: #bd8b72;
+}
+
+.submitButton:active {
+  transform: scale(0.99);
+}
+
+.signupSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+
+  margin-top: 25px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  color: #555;
+}
+
+.signupLink {
+  color: #9c6d56;
+  font-weight: 500;
+  cursor: pointer;
+
+  transition: color 0.2s ease;
+}
+
+.signupLink:hover {
+  color: #704a38;
+  text-decoration: underline;
+}
+
+
+/* =========================
+   Tablet
+   ========================= */
+
+@media (max-width: 768px) {
+  .cardContainer {
+    width: min(90%, 520px);
+    min-height: 440px;
+
+    margin: 30px auto;
+    padding: 48px 34px 40px;
+
+    border-radius: 32px;
+  }
+
+  .heading {
+    font-size: 28px;
+    margin-bottom: 36px;
+  }
+
+  .submitButton {
+    margin-top: 46px;
+  }
+}
+
+
+/* =========================
+   Mobile
+   ========================= */
+
+@media (max-width: 480px) {
+  .cardContainer {
+    width: calc(100% - 30px);
+    min-height: auto;
+
+    margin: 20px auto;
+    padding: 40px 22px 34px;
+
+    border-radius: 28px;
+  }
+
+  .heading {
+    margin-bottom: 32px;
+    font-size: 26px;
+  }
+
+  .inputField {
+    height: 46px;
+    padding: 0 17px;
+    font-size: 13px;
+  }
+
+  .passwordWrapper .inputField {
+    padding-right: 70px;
+  }
+
+  .forgotPassword {
+    right: 16px;
+    font-size: 12px;
+  }
+
+  .submitButton {
+    height: 46px;
+    margin-top: 42px;
+    font-size: 13px;
+  }
+
+  .signupSection {
+    flex-wrap: wrap;
+    margin-top: 22px;
+    font-size: 12px;
+  }
+}
+
+
+/* =========================
+   Very small phones
+   ========================= */
+
+@media (max-width: 360px) {
+  .cardContainer {
+    width: calc(100% - 20px);
+    padding: 34px 17px 30px;
+  }
+
+  .heading {
+    font-size: 24px;
+  }
+
+  .inputField {
+    height: 44px;
+  }
+
+  .submitButton {
+    height: 44px;
+  }
+}
