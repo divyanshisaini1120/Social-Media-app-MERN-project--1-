@@ -15,6 +15,7 @@ function Register() {
     name_: '',
     username: '',
     email: '',
+    phone: '',
     password: ''
   });
   const [message, setMessage] = useState('');
@@ -39,6 +40,10 @@ function Register() {
       
       if (response.ok) {
         setMessage(data.message); //"🎉 " + 
+        setTimeout(()=>{
+          navigate("/"); //navigate to the landing-page
+        }, 1000);
+
       } else {
         setMessage(data.message);
       }
@@ -101,6 +106,17 @@ function Register() {
             onChange={handleChange}
             required
             className={styles["register-input"]}
+          />
+
+          {/* Phone */}
+          <input
+              type="tel"
+              name="phone"
+              placeholder="Phone Number"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+              className={styles["register-input"]}
           />
 
           {/* Password */}

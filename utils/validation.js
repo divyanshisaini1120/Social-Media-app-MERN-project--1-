@@ -4,8 +4,9 @@
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const USERNAME_REGEX = /^[a-zA-Z0-9_.]+$/; // Letters, numbers, underscores, and dots only
 const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+const PHONE_REGEX = /^[0-9]{10}$/;
 
-const validateUser = function(username, name_, email,  password){
+const validateUser = function(username, name_, email, phone, password){
 
     //check all fields exists
     if(!username || !name_ || !email ||!password){
@@ -27,6 +28,12 @@ const validateUser = function(username, name_, email,  password){
             isValid: false,
             message: "Please provide a valid email"
         }) 
+    }
+    if(!PHONE_REGEX.test(phone.trim())){
+        return {
+            isValid: false,
+            message: "Phone number must contain exactly 10 digits"
+        };
     }
     if(!USERNAME_REGEX.test(username.trim())){
         return({isValid: false, message: "Username can only contains alphanumeric, dot and underscore"}) 

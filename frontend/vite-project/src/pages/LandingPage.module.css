@@ -1,0 +1,430 @@
+/* =========================
+   PAGE
+========================= */
+
+.page {
+    min-height: 100vh;
+    background-color: #f3efe9;
+    color: #46382f;
+    padding-top: 64px;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   HERO / PROMOTION
+========================= */
+
+.hero {
+    width: 100%;
+    min-height: 620px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    background-color: #ebe5dc;
+}
+
+
+/* LEFT SIDE */
+
+.heroContent {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 70px clamp(30px, 8vw, 120px);
+
+    box-sizing: border-box;
+}
+
+.heroLabel {
+    margin: 0 0 20px;
+
+    color: #806f64;
+
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+
+    letter-spacing: 2.5px;
+}
+
+.heroTitle {
+    margin: 0;
+
+    color: #46382f;
+
+    font-family: Georgia, serif;
+    font-size: clamp(44px, 5vw, 72px);
+    font-weight: 400;
+
+    line-height: 1.05;
+}
+
+.heroDescription {
+    max-width: 390px;
+
+    margin: 28px 0 35px;
+
+    color: #806f64;
+
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+.heroButton {
+    width: 150px;
+    height: 50px;
+
+    border: 1px solid #cda083;
+    background-color: #cda083;
+
+    color: #fffaf5;
+
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.heroButton:hover {
+    background-color: #b98d70;
+    border-color: #b98d70;
+}
+
+
+/* RIGHT SIDE / AD IMAGE */
+
+.heroVisual {
+    min-width: 0;
+    min-height: 620px;
+
+    overflow: hidden;
+
+    background-color: #cda083;
+}
+
+.heroImage {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+
+/* =========================
+   OUR COLLECTIONS
+========================= */
+
+.collections {
+    width: 100%;
+
+    padding: 90px clamp(20px, 6vw, 90px) 100px;
+
+    background-color: #f3efe9;
+
+    box-sizing: border-box;
+}
+
+.sectionHeader {
+    margin-bottom: 45px;
+}
+
+.sectionLabel {
+    margin: 0 0 12px;
+
+    color: #806f64;
+
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+
+    letter-spacing: 2.5px;
+}
+
+.sectionTitle {
+    margin: 0;
+
+    color: #46382f;
+
+    font-family: Georgia, serif;
+    font-size: clamp(32px, 4vw, 42px);
+    font-weight: 400;
+
+    line-height: 1.2;
+}
+
+
+/* =========================
+   COLLECTION GRID
+========================= */
+
+.collectionGrid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+.collectionCard {
+    position: relative;
+
+    width: 100%;
+    aspect-ratio: 4 / 3;
+
+    padding: 0;
+
+    border: 1px solid #d6cec5;
+
+    background-color: #ebe5dc;
+
+    overflow: hidden;
+
+    color: #46382f;
+
+    cursor: pointer;
+
+    box-sizing: border-box;
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.collectionCard:hover {
+    background-color: #e2d8ce;
+    border-color: #cda083;
+
+    transform: translateY(-2px);
+}
+
+
+/* COLLECTION TEXT */
+
+.collectionOverlay {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    padding: 24px;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(70, 56, 47, 0.18),
+            rgba(70, 56, 47, 0)
+        );
+}
+
+.collectionName {
+    color: #46382f;
+
+    font-family: Georgia, serif;
+    font-size: clamp(20px, 2vw, 26px);
+    font-weight: 400;
+}
+.collectionImage {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.arrow {
+    color: #806f64;
+
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+
+    transition: transform 0.2s ease;
+}
+
+.collectionCard:hover .arrow {
+    transform: translateX(5px);
+}
+
+
+/* =========================
+   LARGE TABLET
+========================= */
+
+@media (max-width: 1100px) {
+
+    .hero {
+        min-height: 560px;
+    }
+
+    .heroVisual {
+        min-height: 560px;
+    }
+
+    .heroContent {
+        padding: 60px 6vw;
+    }
+
+    .collectionGrid {
+        gap: 15px;
+    }
+
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 800px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        min-height: auto;
+    }
+
+    .heroContent {
+        min-height: 430px;
+
+        padding: 65px 7vw;
+    }
+
+    .heroVisual {
+        width: 100%;
+        height: auto;
+
+        aspect-ratio: 4 / 3;
+
+        min-height: 0;
+    }
+
+    .collectionGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 16px;
+    }
+
+    .collectionCard {
+        aspect-ratio: 4 / 3;
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .page {
+        padding-top: 58px;
+    }
+
+    .heroContent {
+        min-height: 390px;
+
+        padding: 55px 25px;
+    }
+
+    .heroTitle {
+        font-size: 46px;
+    }
+
+    .heroDescription {
+        max-width: 330px;
+
+        margin-top: 22px;
+        margin-bottom: 30px;
+
+        font-size: 14px;
+    }
+
+    .heroVisual {
+        aspect-ratio: 4 / 3;
+    }
+
+    .collections {
+        padding: 65px 20px 75px;
+    }
+
+    .sectionHeader {
+        margin-bottom: 30px;
+    }
+
+    .sectionTitle {
+        font-size: 32px;
+    }
+
+    .collectionGrid {
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+    }
+
+    .collectionCard {
+        aspect-ratio: 4 / 3;
+    }
+
+    .collectionOverlay {
+        padding: 20px;
+    }
+
+    .collectionName {
+        font-size: 23px;
+    }
+
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 400px) {
+
+    .heroContent {
+        min-height: 360px;
+
+        padding: 45px 20px;
+    }
+
+    .heroTitle {
+        font-size: 40px;
+    }
+
+    .heroVisual {
+        aspect-ratio: 4 / 3;
+    }
+
+    .collections {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .collectionCard {
+        aspect-ratio: 4 / 3;
+    }
+
+}

@@ -14,10 +14,10 @@ const  cookieOptions = {
 
 export const registerUser  = async function(req, res){
     try{
-        const {username, name_, email, password} =  req.body
+        const {username, name_, email, phone, password} =  req.body
 
         //using validateUser function from utils
-        const isValid = validateUser(username, name_, email,  password)
+        const isValid = validateUser(username, name_, email, phone, password)
 
         if(!isValid.isValid){
             return res.status(400).json({"message": isValid.message})
@@ -41,6 +41,7 @@ export const registerUser  = async function(req, res){
             name_,
             username,
             email,
+            phone,
             password: password_bcrypted
             
         })
@@ -54,7 +55,8 @@ export const registerUser  = async function(req, res){
                 _id: newUser._id,
                 name_: newUser.name_,
                 username: newUser.username,
-                email: newUser.email
+                email: newUser.email,
+                phone: newUser.phone
             }
         });
 
@@ -89,13 +91,15 @@ export const loginUser = async (req, res) =>{
         const userfound = await User.findOne({email: email.trim().toLowerCase()})
         if(!userfound){
             return res.status(400).json({
-                message: "email not found"
+                message: "Email not found. Try signing up."
             })
         }
         //verify password
-        // const password_bcrypted = await bcrypt.hash(password) ---no need to write this when bcrypt.compare
-    
-        const password_verified = await bcrypt.compareSync(password, userfound.password) //bycrypt.compare vs bycrypt.compareSync
+        // const password_bcrypted = await bcrypt.hash(password) ---no need to write this when bcrypt.compare 
+        
+
+        //also writing "await" - don't need "compareSync"    
+        const password_verified = bcrypt.compareSync(password, userfound.password) //bycrypt.compare vs bycrypt.compareSync
 
         if(!password_verified){
             return res.status(400).json({
@@ -108,13 +112,14 @@ export const loginUser = async (req, res) =>{
         res.cookie("token",token, cookieOptions)
 
         //successful  return 
-        res.status(201).json({
+        res.status(200).json({
             message: "Login successful!",
             user: {
                 _id: userfound._id,
-                name: userfound.name,
+                name_: userfound.name_,
                 username: userfound.username,
-                email: userfound.email
+                email: userfound.email,
+                phone: userfound.phone
             }
         });
 
@@ -130,7 +135,13 @@ export const logoutUser = (req, res)=>{
         secure: false,
         samesite: "none"
     }) 
-    return res.status(201).json({message: "Logged out successfully!"})
+    return res.status(200).json({message: "Logged out successfully!"})
+}
+
+export const getme = async (req, res) =>{
+    return res.status(200).json({
+        user: req.user
+    })
 }
 
 

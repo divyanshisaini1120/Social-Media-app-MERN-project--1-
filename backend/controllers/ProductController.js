@@ -137,3 +137,70 @@ export const deleteProduct = async function(req, res){
             });
         }     
 }
+
+export const productsByCat = async function(req, res) {
+       try{
+
+        const cat = req.query.category;
+        const filteredProducts = await ProductModel.find({category: cat})
+
+        //find() returning no documents is not an error in MongoDB. It returns []
+
+        if (filteredProducts.length === 0) { //for array -> need length to check --> Boolean([]) // true
+            return res.status(404).json({ message: "No products found" });
+        }
+
+        return res.status(200).json({
+            products: filteredProducts
+        });
+
+       }catch(err){
+           console.log(err.message);
+           return res.status(400).json({message: "Unable to fetch products"})
+
+       }  
+} 
+export const searchProducts = async function(req, res) {
+
+    try {
+
+        const search = req.query.search;
+
+        
+        if (!search || search.trim() === "") {
+            return res.status(400).json({
+                message: "Search query is required"
+            });
+        }
+
+        
+        const products = await ProductModel.find({
+            name_: {
+                $regex: search.trim(),
+                $options: "i"
+            }
+        });
+
+        
+        if (products.length === 0) {
+            return res.status(404).json({
+                message: "No products found"
+            });
+        }
+
+        
+        return res.status(200).json({
+            products
+        });
+
+    } catch(err) {
+
+        console.log(err.message);
+
+        return res.status(500).json({
+            message: "Unable to search products"
+        });
+
+    }
+
+}

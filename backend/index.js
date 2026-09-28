@@ -3,6 +3,7 @@ import mongoose from "mongoose"
 import dotenv from "dotenv"
 import UserRoutes from "./routes/UserRoutes.js"
 import ProductRoutes from "./routes/ProductRoutes.js"
+import WishlistRoutes from "./routes/WishlistRoutes.js"
 import cookieParser from "cookie-parser"
 import cors from "cors"
 
@@ -44,6 +45,7 @@ app.use(express.json())
 
 app.use("/user", UserRoutes)
 app.use("/products", ProductRoutes)
+app.use("/wishlist", WishlistRoutes)
 
 app.listen(port, '0.0.0.0', ()=>
    console.log(`Server is running at ${port}`)

@@ -1,0 +1,15 @@
+.loading-screen {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #f3efe9;
+
+    color: #806f64;
+
+    font-size: 15px;
+    letter-spacing: 1px;
+}

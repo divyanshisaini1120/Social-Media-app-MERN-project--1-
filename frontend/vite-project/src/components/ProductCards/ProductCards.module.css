@@ -1,0 +1,255 @@
+.productGrid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+}
+
+
+/* ---------------- CARD ---------------- */
+
+.productCard {
+    min-width: 0;
+    padding: 10px;
+    background-color: #fdfcf9;
+    border: 1px solid #e3dbd2;
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+
+/* ---------------- IMAGE ---------------- */
+
+.imageContainer {
+    width: 100%;
+    aspect-ratio: 4 / 4.5;
+    overflow: hidden;
+    background-color: #ebe5dc;
+    border-radius: 9px;
+    cursor: pointer;
+}
+
+.productImage {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
+}
+
+.imageContainer:hover .productImage {
+    transform: scale(1.03);
+}
+
+
+/* ---------------- PRODUCT INFO ---------------- */
+
+.productInfo {
+    padding: 15px 4px 4px;
+}
+
+
+/* PRICE + CATEGORY */
+
+.priceCategoryRow {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.price {
+    color: #46382f;
+    font-family: Arial, sans-serif;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+
+/* CATEGORY */
+
+.category {
+    flex-shrink: 0;
+    padding: 6px 11px;
+    border: 1px solid #d6cec5;
+    border-radius: 999px;
+    background-color: #f3efe9;
+    color: #806f64;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+
+/* PRODUCT NAME */
+
+.productName {
+    margin: 11px 0 0;
+    color: #46382f;
+    font-family: Georgia, serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.3;
+
+    min-height: 26px;
+}
+
+
+/* ---------------- BUTTONS ---------------- */
+
+.actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.addToCart,
+.buyNow {
+    width: 100%;
+    height: 43px;
+    padding: 0 8px;
+    border-radius: 9px;
+
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+
+/* ADD TO CART */
+
+.addToCart {
+    border: 1px solid #d6cec5;
+    background-color: #ebe5dc;
+    color: #46382f;
+}
+
+.addToCart:hover {
+    background-color: #e2d8ce;
+}
+
+
+/* BUY NOW */
+
+.buyNow {
+    border: 1px solid #cda083;
+    background-color: #cda083;
+    color: #fffaf5;
+}
+
+.buyNow:hover {
+    background-color: #b98d70;
+    border-color: #b98d70;
+}
+
+
+/* ---------------- TABLET ---------------- */
+
+@media (max-width: 1100px) {
+
+    .productGrid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+}
+
+
+/* ---------------- SMALL TABLET ---------------- */
+
+@media (max-width: 800px) {
+
+    .productGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .productCard {
+        padding: 9px;
+    }
+
+    .price {
+        font-size: 20px;
+    }
+
+    .category {
+        font-size: 10px;
+        padding: 6px 10px;
+    }
+
+    .productName {
+        font-size: 19px;
+    }
+
+}
+
+
+/* ---------------- MOBILE ---------------- */
+
+@media (max-width: 500px) {
+
+    .productGrid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .productCard {
+        padding: 10px;
+    }
+
+    .imageContainer {
+        aspect-ratio: 4 / 4.5;
+    }
+
+    .price {
+        font-size: 21px;
+    }
+
+    .category {
+        font-size: 11px;
+        padding: 6px 11px;
+    }
+
+    .productName {
+        font-size: 20px;
+    }
+
+    .actions {
+        margin-top: 15px;
+    }
+
+}
+
+
+/* ---------------- SMALL MOBILE ---------------- */
+
+@media (max-width: 350px) {
+
+    .productGrid {
+        gap: 20px;
+    }
+
+    .actions {
+        gap: 8px;
+    }
+
+    .addToCart,
+    .buyNow {
+        font-size: 11px;
+    }
+
+}
