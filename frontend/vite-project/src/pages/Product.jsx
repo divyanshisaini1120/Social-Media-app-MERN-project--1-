@@ -99,32 +99,6 @@ function Product() {
 
     }, [id]);
 
-
-    if (loading) {
-        return (
-            <div className={styles.status}>
-                Loading product...
-            </div>
-        );
-    }
-
-
-    if (error) {
-        return (
-            <div className={styles.status}>
-                {error}
-            </div>
-        );
-    }
-
-
-    if (!product) {
-        return (
-            <div className={styles.status}>
-                Product not found.
-            </div>
-        );
-    }
     const handleWishlist = async () => {
 
         try {
@@ -153,6 +127,34 @@ function Product() {
 
         }
     };
+
+
+    if (loading) {
+        return (
+            <div className={styles.status}>
+                Loading product...
+            </div>
+        );
+    }
+
+
+    if (error) {
+        return (
+            <div className={styles.status}>
+                {error}
+            </div>
+        );
+    }
+
+
+    if (!product) {
+        return (
+            <div className={styles.status}>
+                Product not found.
+            </div>
+        );
+    }
+    
     
 
 
